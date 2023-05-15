@@ -1,0 +1,53 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block body %}
+
+<div class="col-9 col-12-medium">
+
+<!-- Main Content -->
+    <section>
+        <header>
+            <h2>Rechercher</h2>
+            <h3>Rechercher un film suivant des critères</h3>
+        </header>
+        <form method="post" action="{% url 'filmrecherche' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <input class="button-large" type="submit" value="Rechercher" title="Rechercher le film"/>
+        </form>
+    </section>
+
+</div>
+<div class="col-3 col-12-medium">
+
+<!-- Sidebar -->
+    <section>
+        <header>
+            <h2>{{ infos.Titre }}</h2>
+            <h3>{{ infos.Type }}</h3>
+        </header>
+
+        <!--a href="{{ infos.Image }}"><img src="{{ infos.Image }}" width="220" alt="Couverture"></a-->
+
+        <p>
+            Réalisateur : {{ infos.Réalisateur }}<br />
+            Langue : {{ infos.Langue }}<br />
+            {{ infos.Date }} | {{ infos.Durée }} minutes<br />
+            {{ infos.Colorisation }} | {{ infos.Voix }} | {{ infos.Disque }}<br />
+        </p>
+        <p>
+            {% for acteur in infos.Acteurs %}
+                {{ acteur }}<br />
+            {% endfor %}
+
+        </p>
+        <p>
+            <a style="color:#FFFFFF;" href="{% url 'pagefilm' infos.Id %}" class="button-large">Voir plus</a>
+        </p>
+    </section>
+
+
+</div>
+
+{% endblock %}

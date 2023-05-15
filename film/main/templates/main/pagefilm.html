@@ -1,0 +1,67 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block body %}
+
+<!--div class="col-3 col-12-medium">
+
+        <section>
+            <header>
+                <h2>Couverture</h2>
+            </header>
+            <a href="{{ Image }}"><img src="{{ Image }}" width="220" alt="Couverture"></a>
+        </section>
+
+</div-->
+<div class="col-9 col-12-medium imp-medium">
+
+    <!-- Main Content -->
+
+        <section>
+            <header>
+                <h2>
+                {% if Titre and Titre != "" %}
+                    <a href="{{ Liens }}">{{ Titre }}</a>
+                {% else %}
+                    Pas de titre
+                {% endif %}
+                </h2>
+
+                {% if Type and Type != "" %}
+                    <h3>{{ Type }}</h3>
+                {% endif %}
+
+            </header>
+
+                <table>
+                    <tr>
+                        <td><strong>Réalisateur</strong> : <a href="{{ Réalisateur.link }}">{{ Réalisateur.nom }}</a><br /></td>
+                        <td><strong>Langue</strong> : {{ Langue }}, {{ Voix }}</td>
+                        <td><strong>Date</strong> : {{ Date }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Durée</strong> : {{ Durée }} minutes</td>
+                        <td><strong>Colorisation</strong> : {{ Colorisation }}</td>
+                        <td><strong>Disque</strong> : {% if Disque == 'BR' %}Blue Ray{% else %}{{ Disque }}{% endif %}</td>
+                    </tr>
+                </table>
+
+
+        </section>
+
+</div>
+
+<div class="col-12">
+
+    <!-- Main Content -->
+        <section>
+            <header>
+                <h2>Acteurs</h2>
+            </header>
+            {% for acteur in Acteurs %}
+                • <a href="{{ acteur.link }}">{{ acteur.nom }}</a><br />
+            {% endfor %}
+
+        </section>
+</div>
+
+{% endblock %}
