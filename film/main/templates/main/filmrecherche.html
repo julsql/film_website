@@ -8,7 +8,7 @@
     <section>
         <header>
             <h2>Rechercher</h2>
-            <h3>Rechercher une bande dessinée suivant des critères</h3>
+            <h3>Rechercher un film suivant des critères</h3>
         </header>
         <form method="post" action="">
             {% csrf_token %}
@@ -20,7 +20,7 @@
 
     <section>
         <header>
-            <h2>Les Bandes Dessinées</h2>
+            <h2>Les Films</h2>
             <h3>Résultat de recherche</h3>
         </header>
         {% for film in infos %}
