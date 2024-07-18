@@ -27,7 +27,7 @@ It's a Django project that displays my collection of films.
 1. Clone git repository
 
     ```bash
-    git clone git@github.com:juliette39/film_website.git
+    git clone git@github.com:julsql/film_website.git
     ```
 
 2. Don't forget to add the settings file in `./film/film`
@@ -85,24 +85,24 @@ sudo nano /etc/apache2/sites-available/myconfig.conf
 ```
 <VirtualHost *:80>
     ServerName film.h.minet.net
-    ServerAdmin juliette.debono@telecom-sudparis.eu
+    ServerAdmin admin@email.fr
 
     AddDefaultCharset UTF-8
 
-    Alias /static /home/juliettedebono/film_website/film/main/static/
-    <Directory /home/juliettedebono/film_website/film/main/static/>
+    Alias /static /home/username/film_website/film/main/static/
+    <Directory /home/username/film_website/film/main/static/>
         Require all granted
     </Directory>
 
-    <Directory /home/juliettedebono/film_website/film/film/>
+    <Directory /home/username/film_website/film/film/>
         <Files wsgi.py>
             Require all granted
         </Files>
     </Directory>
 
-    WSGIDaemonProcess film_process python-home=/home/juliettedebono/film_website/env python-path=/home/juliettedebono/film_website/film
+    WSGIDaemonProcess film_process python-home=/home/username/film_website/env python-path=/home/username/film_website/film
     WSGIProcessGroup film_process
-    WSGIScriptAlias / /home/juliettedebono/film_website/film/film/wsgi.py process-group=film_process
+    WSGIScriptAlias / /home/username/film_website/film/film/wsgi.py process-group=film_process
 
     ErrorLog ${APACHE_LOG_DIR}/error.log
     CustomLog ${APACHE_LOG_DIR}/access.log combined
@@ -119,4 +119,4 @@ sudo service apache2 restart
 
 ## Authors
 
-- Juliette Debono
+- Jul SQL
