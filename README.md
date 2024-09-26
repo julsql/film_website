@@ -84,7 +84,7 @@ sudo nano /etc/apache2/sites-available/myconfig.conf
 
 ```
 <VirtualHost *:80>
-    ServerName film.h.minet.net
+    ServerName url.domain.com
     ServerAdmin admin@email.fr
 
     AddDefaultCharset UTF-8
